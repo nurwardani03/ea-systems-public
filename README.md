@@ -32,7 +32,7 @@ Dikembangkan dengan Laravel 10 dan Tailwind CSS, sistem ini memudahkan auditor d
 ```bash
 # clone repo
 git clone https://github.com/nurwardani03/ea-systems-public.git
-cd ea-systemspublic
+cd ea-systems-public
 
 # install dependency Laravel
 composer install
@@ -47,7 +47,7 @@ cp .env.example .env
 php artisan key:generate
 
 # atur koneksi database di file .env
-DB_DATABASE=nama_database
+DB_DATABASE=nama_database (audit_db.sql)
 DB_USERNAME=root
 DB_PASSWORD=
 
@@ -56,6 +56,10 @@ php artisan migrate --seed
 
 # mulai server lokal
 php artisan serve
+
+# menjalankan sistem
+127.0.0.1:8000/login (login auditor)
+127.0.0.1:8000/admin/login (login admin)
 ```
 
 ---
