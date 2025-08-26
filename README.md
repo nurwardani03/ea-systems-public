@@ -1,219 +1,61 @@
-# 🧾 EA Systems — E-Audit 5S (Laravel)
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-Aplikasi web untuk mendigitalisasi proses audit 5S  
-(Seiri, Seiton, Seiso, Seiketsu, Shitsuke) di lingkungan manufaktur.  
+<p align="center">
+<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+</p>
 
-Dibangun dengan **Laravel + MySQL + Tailwind (Blade) + DataTables + Chart.js + Alpine.js**.
+## About Laravel
 
----
+Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-## 📌 Daftar Isi
-- [Requirements](#-requirements)
-- [Setup Cepat (Local)](#-setup-cepat-local)
-- [Endpoint Login & Akun Contoh](#-endpoint-login--akun-contoh)
-- [Fitur Utama](#-fitur-utama)
-- [Struktur Proyek](#-struktur-proyek)
-- [Deploy (Shared Hosting / VPS)](#️-deploy-shared-hosting--vps)
-- [Perintah Berguna](#-perintah-berguna)
-- [Troubleshooting](#-troubleshooting)
-- [Kontributor](#-kontributor)
-- [Lisensi](#-lisensi)
+- [Simple, fast routing engine](https://laravel.com/docs/routing).
+- [Powerful dependency injection container](https://laravel.com/docs/container).
+- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
+- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
+- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
+- [Robust background job processing](https://laravel.com/docs/queues).
+- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
----
+Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## 📦 Requirements
-- PHP ≥ 8.1  
-  Ekstensi wajib: OpenSSL, PDO, Mbstring, Tokenizer, XML, Ctype, JSON, BCMath, Fileinfo
-- Composer ≥ 2.x  
-- Node.js ≥ 16 (disarankan 18+) + npm  
-- MySQL / MariaDB  
-- Git  
-- (Opsional) XAMPP / Laragon / Valet untuk lokal  
+## Learning Laravel
 
-Cek versi cepat:
-```bash
-php -v
-composer -V
-node -v
-npm -v
+Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-🚀 Setup Cepat (Local)
+You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
 
-Clone & masuk folder
+If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-git clone https://github.com/<username>/ea-systems.git
-cd ea-systems
+## Laravel Sponsors
 
+We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
 
-Install dependency
+### Premium Partners
 
-composer install
-npm install
+- **[Vehikl](https://vehikl.com)**
+- **[Tighten Co.](https://tighten.co)**
+- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
+- **[64 Robots](https://64robots.com)**
+- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
+- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
+- **[Redberry](https://redberry.international/laravel-development)**
+- **[Active Logic](https://activelogic.com)**
 
-# Build production:
-npm run build
+## Contributing
 
-# atau saat development (HMR):
-npm run dev
+Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
+## Code of Conduct
 
-Siapkan environment
+In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-cp .env.example .env
-php artisan key:generate
+## Security Vulnerabilities
 
+If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-Edit .env (contoh):
+## License
 
-APP_NAME="EA Systems"
-APP_ENV=local
-APP_KEY=base64:... # otomatis terisi
-APP_DEBUG=true
-APP_URL=http://127.0.0.1:8000
-
-# Database
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=ea_systems
-DB_USERNAME=root
-DB_PASSWORD=
-
-# Filesystem
-FILESYSTEM_DISK=public
-
-
-Buat symlink storage (untuk akses file upload)
-
-php artisan storage:link
-
-
-Migrasi & seeder
-
-php artisan migrate --seed
-
-
-Seeder akan membuat akun contoh Admin & Auditor.
-
-Jalankan server
-
-php artisan serve
-
-
-👉 Akses: http://127.0.0.1:8000
-
-🔑 Endpoint Login & Akun Contoh
-
-Auditor
-
-Login: http://127.0.0.1:8000/login
-
-Admin
-
-Login: http://127.0.0.1:8000/admin/login
-
-Dashboard Admin: http://127.0.0.1:8000/admin
-
-Role	Email	Password
-Admin	admin@ea.com
-	password
-Auditor	auditor@ea.com
-	password
-
-Setelah login, pengguna akan diarahkan sesuai role.
-⚠️ Catatan: jika rute login admin beda (mis. /admin/sign-in), sesuaikan di route.
-
-✨ Fitur Utama
-
-Multi-role: Admin & Auditor
-
-Input temuan audit + unggah foto before/after
-
-Verifikasi & status perbaikan temuan
-
-Halaman laporan & analitik (skor 5S, tren temuan)
-
-Ekspor laporan periode (PDF/Excel; bulanan/periode)
-
-Master data: tema, bagian, jadwal, pengguna
-
-📁 Struktur Proyek
-app/Models/              # Model (Audit, Tema, Bagian, User, ...)
-app/Http/Controllers/    # AuditController, JadwalController, TemaController, ...
-resources/views/         # Blade (laporan/analitik, form, dsb.)
-routes/web.php           # Routing web (login, admin, dll.)
-database/migrations/     # Skema database
-database/seeders/        # Seeder akun & master awal
-public/                  # Aset publik (Vite build, uploads via storage link)
-
-🛳️ Deploy (Shared Hosting / VPS)
-A. Shared Hosting (tanpa SSH)
-
-Build aset lokal:
-
-npm run build
-
-
-Edit .env → produksi (APP_ENV=production, APP_DEBUG=false, kredensial DB hosting).
-
-Upload semua file ke hosting. Pastikan document root mengarah ke folder public/.
-
-Jika tidak bisa ubah → pindahkan isi public/ ke root & update path pada index.php (opsi darurat).
-
-Migrasi DB:
-
-Jika tidak ada SSH → ekspor DB lokal kosong atau import via phpMyAdmin.
-
-Jalankan php artisan storage:link jika hosting support Artisan.
-
-Jika tidak → buat symlink manual atau minta support hosting.
-
-B. VPS / SSH
-git clone https://github.com/<username>/ea-systems.git
-cd ea-systems
-
-composer install --no-dev --optimize-autoloader
-npm ci && npm run build
-
-cp .env.example .env
-php artisan key:generate   # jika .env baru
-# Edit .env produksi (DB, APP_URL, dsb.)
-
-php artisan migrate --force
-php artisan storage:link
-php artisan optimize
-
-
-Permission (Linux)
-
-sudo chown -R www-data:www-data storage bootstrap/cache
-sudo find storage bootstrap/cache -type d -exec chmod 775 {} \;
-sudo find storage bootstrap/cache -type f -exec chmod 664 {} \;
-
-🧪 Perintah Berguna
-php artisan migrate:fresh --seed   # Reset DB + seed ulang
-php artisan route:list             # Cek daftar route
-php artisan optimize:clear         # Clear cache config/route/view
-
-🛠️ Troubleshooting
-
-CSS/JS tidak muncul → Jalankan npm run build & cek APP_URL.
-
-Gambar / upload tidak tampil → Jalankan php artisan storage:link & cek permission storage/.
-
-SQLSTATE[HY000] / akses DB gagal → Cek kredensial .env, pastikan DB sudah ada.
-
-404 pada /admin/login → php artisan route:list → pastikan route ada → php artisan route:clear.
-
-Document root tidak ke public/ → Ubah vhost/hosting. Alternatif: pindahkan isi public/ ke root & sesuaikan index.php.
-
-👥 Kontributor
-
-Nur Wardani — Web Developer Intern (EA Systems)
-
-(Tambahkan nama tim lain di sini)
-
-📄 Lisensi
-
-Internal project (PKL/Skripsi).
-Tidak untuk penggunaan komersial tanpa izin.
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
